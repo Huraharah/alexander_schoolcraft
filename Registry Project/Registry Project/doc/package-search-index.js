@@ -1,1 +1,0 @@
-packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"com.group_8.universal_gift_registry.model"},{"l":"com.group_8.universal_gift_registry.util"}];updateSearchResults();
