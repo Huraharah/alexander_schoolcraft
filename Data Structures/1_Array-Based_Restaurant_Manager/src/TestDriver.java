@@ -1,4 +1,4 @@
-public class testDriver {
+public class TestDriver {
 
 	public static void main(String[] args) {
 		Customer jacob = new Customer ("Jacob", "1115551111", 3, false);//
