@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox prefHeight="635.0" prefWidth="824.0" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sim.IDS_simulation">
+
+  <children>
+    <AnchorPane prefHeight="591.0" prefWidth="912.0" VBox.vgrow="ALWAYS">
+      <children>
+
+        <!-- Header: centered title -->
+        <StackPane AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="15.0">
+          <children>
+            <Label text="IDS Simulator">
+              <font>
+                <Font name="Georgia Bold" size="36.0" />
+              </font>
+            </Label>
+          </children>
+        </StackPane>
+
+        <!-- Main content: tabs/tables fill the middle -->
+        <TabPane fx:id="tabs" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="140.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="75.0">
+          <tabs>
+
+            <Tab fx:id="tab_all" text="All">
+              <content>
+                <AnchorPane>
+                  <children>
+                    <TableView fx:id="all_table" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                      <placeholder><Label text="No events yet. Click Run Simulation." /></placeholder>
+                      <columns>
+                        <TableColumn fx:id="all_time" prefWidth="120.0" text="Timestamp" />
+                        <TableColumn fx:id="all_src_ip" prefWidth="100.0" text="Src IP" />
+                        <TableColumn fx:id="all_src_port" prefWidth="55.0" text="Src Port" />
+                        <TableColumn fx:id="all_dst_ip" prefWidth="100.0" text="Dst IP" />
+                        <TableColumn fx:id="all_dst_port" prefWidth="55.0" text="Dst Port" />
+                        <TableColumn fx:id="all_class" prefWidth="85.0" text="Classification" />
+                        <TableColumn fx:id="all_reason" prefWidth="280.0" text="Reason" />
+                      </columns>
+                    </TableView>
+                  </children>
+                </AnchorPane>
+              </content>
+            </Tab>
+
+            <Tab fx:id="tab_info" text="Information">
+              <content>
+                <AnchorPane>
+                  <children>
+                    <TableView fx:id="info_table" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                      <placeholder><Label text="No events yet. Click Run Simulation." /></placeholder>
+                      <columns>
+                        <TableColumn fx:id="info_time" prefWidth="120.0" text="Timestamp" />
+                        <TableColumn fx:id="info_src_ip" prefWidth="100.0" text="Src IP" />
+                        <TableColumn fx:id="info_src_port" prefWidth="55.0" text="Src Port" />
+                        <TableColumn fx:id="info_dst_ip" prefWidth="100.0" text="Dst IP" />
+                        <TableColumn fx:id="info_dst_port" prefWidth="55.0" text="Dst Port" />
+                        <TableColumn fx:id="info_class" prefWidth="85.0" text="Classification" />
+                        <TableColumn fx:id="info_reason" prefWidth="280.0" text="Reason" />
+                      </columns>
+                    </TableView>
+                  </children>
+                </AnchorPane>
+              </content>
+            </Tab>
+
+            <Tab fx:id="tab_warn" text="Warning">
+              <content>
+                <AnchorPane>
+                  <children>
+                    <TableView fx:id="warn_table" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                      <placeholder><Label text="No events yet. Click Run Simulation." /></placeholder>
+                      <columns>
+                        <TableColumn fx:id="warn_time" prefWidth="120.0" text="Timestamp" />
+                        <TableColumn fx:id="warn_src_ip" prefWidth="100.0" text="Src IP" />
+                        <TableColumn fx:id="warn_src_port" prefWidth="55.0" text="Src Port" />
+                        <TableColumn fx:id="warn_dst_ip" prefWidth="100.0" text="Dst IP" />
+                        <TableColumn fx:id="warn_dst_port" prefWidth="55.0" text="Dst Port" />
+                        <TableColumn fx:id="warn_class" prefWidth="85.0" text="Classification" />
+                        <TableColumn fx:id="warn_reason" prefWidth="280.0" text="Reason" />
+                      </columns>
+                    </TableView>
+                  </children>
+                </AnchorPane>
+              </content>
+            </Tab>
+
+            <Tab fx:id="tab_alert" text="Alert">
+              <content>
+                <AnchorPane>
+                  <children>
+                    <TableView fx:id="alert_table" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                      <placeholder><Label text="No events yet. Click Run Simulation." /></placeholder>
+                      <columns>
+                        <TableColumn fx:id="alert_time" prefWidth="120.0" text="Timestamp" />
+                        <TableColumn fx:id="alert_src_ip" prefWidth="100.0" text="Src IP" />
+                        <TableColumn fx:id="alert_src_port" prefWidth="55.0" text="Src Port" />
+                        <TableColumn fx:id="alert_dst_ip" prefWidth="100.0" text="Dst IP" />
+                        <TableColumn fx:id="alert_dst_port" prefWidth="55.0" text="Dst Port" />
+                        <TableColumn fx:id="alert_class" prefWidth="85.0" text="Classification" />
+                        <TableColumn fx:id="alert_reason" prefWidth="280.0" text="Reason" />
+                      </columns>
+                    </TableView>
+                  </children>
+                </AnchorPane>
+              </content>
+            </Tab>
+
+            <Tab fx:id="tab_crit" text="Critical">
+              <content>
+                <AnchorPane>
+                  <children>
+                    <TableView fx:id="crit_table" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                      <placeholder><Label text="No events yet. Click Run Simulation." /></placeholder>
+                      <columns>
+                        <TableColumn fx:id="crit_time" prefWidth="120.0" text="Timestamp" />
+                        <TableColumn fx:id="crit_src_ip" prefWidth="100.0" text="Src IP" />
+                        <TableColumn fx:id="crit_src_port" prefWidth="55.0" text="Src Port" />
+                        <TableColumn fx:id="crit_dst_ip" prefWidth="100.0" text="Dst IP" />
+                        <TableColumn fx:id="crit_dst_port" prefWidth="55.0" text="Dst Port" />
+                        <TableColumn fx:id="crit_class" prefWidth="85.0" text="Classification" />
+                        <TableColumn fx:id="crit_reason" prefWidth="280.0" text="Reason" />
+                      </columns>
+                    </TableView>
+                  </children>
+                </AnchorPane>
+              </content>
+            </Tab>
+
+          </tabs>
+        </TabPane>
+
+        <!-- Footer: blurb + buttons -->
+        <Label fx:id="blurb" layoutX="14.0" layoutY="501.0" text="This simple app demonstrates a simulation IDS output using a real PCAP file from an older challenge that has been converted to a JSON file. It parses through each packet's information, pulling the source and destination IP addresses and port numbers, timestamps, and protocols used, then, using certain metrics, identifies and classifies each packet based on both just that packet, as well as a few other classifiers. ** NOTE ** Some of these classifiers are specific to this capture to simulate various levels of danger - not all of them are true IoC's. Always consult with a security advisor for true indicators of compromise." wrapText="true" AnchorPane.bottomAnchor="47.799999999999955" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="16.40000000000009" />
+
+        <HBox alignment="CENTER" spacing="24.0" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0">
+          <children>
+            <Button fx:id="run_btn" text="Run Simulation" />
+            <Button fx:id="reset_btn" text="Reset Simulation" />
+          </children>
+        </HBox>
+
+      </children>
+    </AnchorPane>
+  </children>
+</VBox>

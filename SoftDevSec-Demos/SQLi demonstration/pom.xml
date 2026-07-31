@@ -1,0 +1,110 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+                             http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>CSCI6460</groupId>
+  <artifactId>SQLi_Demo</artifactId>
+  <version>1.0-SNAPSHOT</version>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <maven.compiler.release>21</maven.compiler.release>
+    <javafx.version>23</javafx.version>
+    <!-- os-maven-plugin populates this (e.g., win-x86_64, mac-aarch64, linux-x86_64) -->
+    <javafx.platform>${os.detected.classifier}</javafx.platform>
+  </properties>
+
+  <dependencies>
+    <!-- JavaFX -->
+    <dependency>
+      <groupId>org.openjfx</groupId>
+      <artifactId>javafx-controls</artifactId>
+      <version>${javafx.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.openjfx</groupId>
+      <artifactId>javafx-fxml</artifactId>
+      <version>${javafx.version}</version>
+    </dependency>
+
+    <!-- Azure SQL Server JDBC -->
+    <dependency>
+      <groupId>com.microsoft.sqlserver</groupId>
+      <artifactId>mssql-jdbc</artifactId>
+      <version>12.6.1.jre11</version>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <plugins>
+      <!-- Detect OS for JavaFX classifiers -->
+      <plugin>
+        <groupId>kr.motd.maven</groupId>
+        <artifactId>os-maven-plugin</artifactId>
+        <version>1.7.1</version>
+        <executions>
+          <execution>
+            <goals><goal>detect</goal></goals>
+          </execution>
+        </executions>
+      </plugin>
+
+      <!-- Compile with Java 21 -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.11.0</version>
+        <configuration>
+          <release>21</release>
+        </configuration>
+      </plugin>
+
+      <!-- Run JavaFX app via `mvn javafx:run` -->
+      <plugin>
+        <groupId>org.openjfx</groupId>
+        <artifactId>javafx-maven-plugin</artifactId>
+        <version>0.0.8</version>
+        <configuration>
+           <mainClass>SQLi.App</mainClass>
+        </configuration>
+      </plugin>
+      
+      <!-- Copy just the JDBC dependency to target/lib -->
+      <plugin>
+      <groupId>org.apache.maven.plugins</groupId>
+      <artifactId>maven-dependency-plugin</artifactId>
+      <version>3.6.1</version>
+      <executions>
+        <execution>
+          <id>copy-deps</id>
+          <phase>package</phase>
+          <goals><goal>copy-dependencies</goal></goals>
+          <configuration>
+            <outputDirectory>${project.build.directory}/lib</outputDirectory>
+            <!-- keep it minimal: only copy mssql-jdbc -->
+            <includeArtifactIds>mssql-jdbc</includeArtifactIds>
+          </configuration>
+        </execution>
+      </executions>
+    </plugin>
+    
+    <!-- Create an executable JAR with Main-Class and Class-Path -->
+    <plugin>
+      <groupId>org.apache.maven.plugins</groupId>
+      <artifactId>maven-jar-plugin</artifactId>
+      <version>3.3.0</version>
+      <configuration>
+        <archive>
+          <manifest>
+            <mainClass>SQLi.App</mainClass>            <!-- your fully-qualified main class -->
+            <addClasspath>true</addClasspath>
+            <classpathPrefix>lib/</classpathPrefix>     <!-- points to target/lib/*.jar -->
+          </manifest>
+        </archive>
+      </configuration>
+    </plugin>
+    </plugins>
+  </build>
+</project>

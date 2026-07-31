@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="458.0" prefWidth="739.0" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1">
+  <children>
+    <Button id="secure_login" layoutX="33.0" layoutY="410.0" mnemonicParsing="false" text="Secure Login" />
+    <Button id="insecure_login" layoutX="234.0" layoutY="410.0" mnemonicParsing="false" text="Insecure Login" />
+    <Label layoutX="328.0" layoutY="7.0" prefHeight="140.0" prefWidth="401.0" text="SQLi Tester and Demonstration" textAlignment="CENTER" underline="true" wrapText="true">
+      <font>
+          <Font size="48.0" />
+      </font>
+    </Label>
+    <Label layoutX="5.0" layoutY="229.0" text="Username:" />
+    <Label id="password" layoutX="7.0" layoutY="316.0" text="Password:" />
+    <Label layoutX="382.0" layoutY="240.0" text="Tautology Attacks: " />
+    <Label layoutX="484.0" layoutY="238.0" prefHeight="38.0" prefWidth="173.0" text="' OR '1'='1'; -- (in either, will also dump all rows)" wrapText="true" />
+    <Label layoutX="484.0" layoutY="274.0" text="admin' -- (in username)" />
+    <Label layoutX="387.0" layoutY="293.0" text="Data Leak Attack:" />
+    <Label layoutX="484.0" layoutY="286.0" prefHeight="44.0" prefWidth="222.0" text="' OR 1=1 UNION ALL SELECT username, passwd, secret FROM dbo.Users --" wrapText="true" />
+    <Label layoutX="387.0" layoutY="325.0" prefHeight="70.0" prefWidth="330.0" text="In addition to the above attacks, several other attacks work as well, including inserting/deleting rows, changing values, and even deleting the whole table (closing and reopening the app will re-generate the default table)." wrapText="true" />
+    <TableView id="users_table" layoutX="53.0" layoutY="14.0" prefHeight="125.0" prefWidth="244.0">
+      <columns>
+        <TableColumn id="username" prefWidth="122.0" text="Username" />
+        <TableColumn id="passwd" prefWidth="121.0" text="Password" />
+      </columns>
+    </TableView>
+    <Label layoutX="8.0" layoutY="140.0" prefHeight="90.0" prefWidth="724.0" text="This simple app demonstrates SQL injection attacks, as well as a way to prevent them in Java. The above table shows the default usernames and passwords that are in the database table. Clicking &quot;Secure Login&quot; will run the SQL query through PreparedStatement, which paramatizes the input, preventing most SLQi attacks. However, &quot;Insecure Login&quot; concatanates the input to the query, resulting in insecure strings, allowing for a wide variety of SQLi attacks. All users have a server-side secret that shows on successful login (or SQLi attack)." wrapText="true" />
+    <TextArea id="username" layoutX="4.0" layoutY="247.0" prefHeight="70.0" prefWidth="366.0" wrapText="true" />
+    <TextArea id="passwd" layoutX="4.0" layoutY="334.0" prefHeight="70.0" prefWidth="365.0" wrapText="true" />
+  </children>
+</AnchorPane>
+      

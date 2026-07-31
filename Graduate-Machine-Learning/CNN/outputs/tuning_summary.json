@@ -1,0 +1,12 @@
+{
+  "optimizer": "adamw",
+  "lr": 0.0003,
+  "weight_decay": 0.0,
+  "dropout": 0.2,
+  "scheduler": "onecycle",
+  "augmentation": "strong",
+  "tuned_val_acc": 0.4055,
+  "tune_epochs": 4,
+  "tune_max_train": 8000,
+  "tune_trials": 20
+}
