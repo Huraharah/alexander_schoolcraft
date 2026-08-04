@@ -163,5 +163,11 @@ Independent research projects, publications, and actively developed software are
 More advanced independent and research projects are maintained separately:
 
 - [Transformer_Toy](https://github.com/Huraharah/Transformer_Toy)
-- [guardAInDBG](https://github.com/guardAIn-DBG/guardAIn_Debugger)
+- [guardAInDBG](https://github.com/guardAIn-DBG/guardAIn_Debugger) <Currently not published publicly, will publish with FTC 2026, October 2026.>
 - [Professional Portfolio](https://github.com/Huraharah/adschoolcraft)
+
+## License
+
+Copyright © 2026 Alexander Schoolcraft.
+
+This project is licensed under the Apache License 2.0. See the LICENSE file for details.
